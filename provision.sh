@@ -14,3 +14,12 @@ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 cd /vagrant
 npm install
 
+# Generate an rsa SSH key with no passphrase and store it 
+# in /home/vagrant/.ssh/id_rsa to later add to github
+# https://github.com/settings/ssh
+ssh-keygen -t rsa -f $HOME/.ssh/id_rsa -N ""
+#cat $HOME/.ssh/id_rsa.pub
+
+# Run the following to add your key to heroku:
+#heroku login
+#heroku keys:add
